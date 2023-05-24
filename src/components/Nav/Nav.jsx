@@ -10,7 +10,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+        <h2 className="nav-title">Transportation App</h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -20,6 +20,17 @@ function Nav() {
             Login / Register
           </Link>
         )}
+
+        {/* If the user logged in is an Admin, show admin home page */}
+        {
+          user.isAdmin && (
+            <>
+              <Link className="navLink" to="/admin">
+                Admin Page
+              </Link>
+            </>
+          )
+        }
 
         {/* If a user is logged in, show these links */}
         {user.id && (
