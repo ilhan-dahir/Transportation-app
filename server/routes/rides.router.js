@@ -5,21 +5,22 @@ const {
     rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
-
-// Handles Ajax request for user information if user is authenticated
+/**
+ * GET route template
+ */
 router.get('/', rejectUnauthenticated, (req, res) => {
-
+    // GET route code here
+    sqlText = `SELECT * FROM "rides";`;
     pool
-        .query(SELECT)
-        .then(() => res.sendStatus(201))
-        .catch((err) => {
-            console.log('User registration failed: ', err);
+        .query(sqlText)
+        .then((results) => res.send(results.rows))
+        .catch((error) => {
+            console.log('Error making SELECT for rides:', error);
             res.sendStatus(500);
         });
-    // Send back user object from the session (previously queried from the database)
-    res.send(req.user);
-});
 
+
+});
 
 /**
  * POST route template

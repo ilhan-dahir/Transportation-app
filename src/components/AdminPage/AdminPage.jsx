@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 function AdminPage() {
     const store = useSelector((store) => store);
-    const [heading, setHeading] = useState('Functional Component');
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch({ type: 'SAGA_FETCH_RIDES' });
+    }, []);
 
     return (
         <div>
-            <h2>{heading}</h2>
+            <h2>Rides to Assign!</h2>
         </div>
     );
 

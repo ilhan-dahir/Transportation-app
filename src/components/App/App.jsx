@@ -73,7 +73,13 @@ function App() {
             // loggen in shows Admin Page for Admin users
             exact path="/admin"
           >
-            <AdminPage />
+            {user.isAdmin ?
+              //if the use is an Admin, allow them to admin page 
+              <AdminPage />
+              :
+              // Otherwise, show the login page
+              <Redirect to="/home" />
+            }
           </ProtectedRoute>
 
           <Route
