@@ -110,3 +110,33 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+/* --------------------------------------------------------------------------------
+Simple Table
+-------------------------------------------------------------------------------- */
+
+.simpleTable {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #020854;
+  border-collapse: collapse;
+}
+
+.simpleTable td,
+.simpleTable th {
+  padding: 8px;
+  border: 1px solid #020854;
+}
+
+.simpleTable thead tr {
+  background-color: #06a3ab;
+  color: #ffffff;
+}
+
+.simpleTable td:first-child {
+  text-align: center;
+}
+
+.simpleTable tbody tr:nth-child(2n + 1) {
+  background-color: #dee8f7;
+}
