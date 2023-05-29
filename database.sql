@@ -4,6 +4,7 @@
 -- Otherwise you will have errors!
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
+	"full_name" VARCHAR (100) NOT NULL,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
     "isAdmin" BOOLEAN DEFAULT FALSE

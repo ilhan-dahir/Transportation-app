@@ -29,7 +29,7 @@ function AdminPage() {
                 </thead>
                 <tbody>
                     {store.rides.map((ride, index) => (
-                        <tr key={index}>
+                        <tr key={index} onClick={() => console.log('clicked', ride.id)}>
                             <td>{index + 1}</td>
                             <td>{ride.pickup_location}</td>
                             <td>{ride.dropoff_location}</td>
