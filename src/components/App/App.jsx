@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import AdminPage from '../AdminPage/AdminPage';
 
 import './App.css';
 
@@ -66,6 +67,19 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // loggen in shows Admin Page for Admin users
+            exact path="/admin"
+          >
+            {user.isAdmin ?
+              //if the use is an Admin, allow them to admin page 
+              <AdminPage />
+              :
+              // Otherwise, show the login page
+              <Redirect to="/home" />
+            }
           </ProtectedRoute>
 
           <Route
